@@ -1,20 +1,16 @@
 package com.SyperOlao;
 
 public class Subdivision {
-    int id;
-    String name;
+    private static long id;
+    private String name;
 
     public Subdivision(String name) {
-        this.id = 228;
+        id = id++;
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

@@ -1,12 +1,12 @@
 package com.SyperOlao;
 
 public class Employee {
-    int id;
-    String name;
-    String gender;
-    Subdivision subdivision;
-    int salary;
-    String dateOfBirthday;
+    private int id;
+    private String name;
+    private String gender;
+    private Subdivision subdivision;
+    private int salary;
+    private String dateOfBirthday;
 
     public Employee(int id, String name, String gender, String dateOfBirthday, Subdivision subdivision, int salary) {
         this.id = id;

@@ -44,13 +44,13 @@ public class Program {
 
     public void showInfo() {
         for (Employee e : employees) {
-            System.out.println("Id: " + e.id);
-            System.out.println("Name: " + e.name);
-            System.out.println("Date of birthday: " + e.dateOfBirthday);
-            System.out.println("Gender: " + e.gender);
-            System.out.println("Salary: " + e.salary);
-            System.out.println("Subdivision id: " + e.subdivision.id);
-            System.out.println("Subdivision name: " + e.subdivision.name);
+            System.out.println("Id: " + e.getId());
+            System.out.println("Name: " + e.getName());
+            System.out.println("Date of birthday: " + e.getDateOfBirthday());
+            System.out.println("Gender: " + e.getGender());
+            System.out.println("Salary: " + e.getSalary());
+            System.out.println("Subdivision id: " + e.getSubdivision().getId());
+            System.out.println("Subdivision name: " + e.getSubdivision().getName() + "\n");
         }
     }
 
