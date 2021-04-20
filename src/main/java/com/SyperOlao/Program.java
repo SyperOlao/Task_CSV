@@ -4,9 +4,9 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
 import java.io.*;
+import java.util.LinkedList;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.io.FileReader;
 import java.util.List;
 
@@ -14,42 +14,32 @@ import java.util.List;
 public class Program {
     private LinkedList<Employee> employees = new LinkedList<Employee>();
 
-/*
-   public Program(String cvgFilePath){
-      try (InputStream in = getClass().getClassLoader().getResourceAsStream(cvgFilePath)
-          CSVReader reader = in == null ? null : new CSVReader(new InputStreamReader(in), ";") {
-             if(reader ==null)
-              {
-                  throw new FileNotFoundException(cvgFilePath);
-              }
-
-             String[] nextLine;
-             while((nextLine =reader.readNext()!=null))
-             {
-
-             }
-
-      } catch (IOException e) {
-          e.printStackTrace();
-      }
-   }
-*/
     //foreign_names
     public Program(String cvgFilePath) throws FileNotFoundException {
 
         CSVReader reader = new CSVReader(new FileReader(cvgFilePath));
 
-        //Read CSV line by line and use the string array as you want
         String[] nextLine;
         try{
         while ((nextLine = reader.readNext()) != null) {
             if (nextLine != null) {
-                //Verifying the read data here
-                System.out.println(Arrays.toString(nextLine));
+                employees.add(getEmployee(Arrays.toString(nextLine)));
             }
         }}catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private static Employee getEmployee(String str){
+        int i = 0;
+        var arrStr = str.replace("[", "").replace("]","").split(";");
+
+        return new Employee(Integer.parseInt(arrStr[i]),//id
+                arrStr[i+1],//name
+                arrStr[i+2],//gender
+                arrStr[i+3],//br
+                new Subdivision(arrStr[i+4]),//sub
+                Integer.parseInt(arrStr[i+5]));
     }
 
     public void showInfo() {
@@ -63,4 +53,5 @@ public class Program {
             System.out.println("Subdivision name: " + e.subdivision.name);
         }
     }
+
 }
