@@ -1,11 +1,12 @@
 package com.SyperOlao;
 
 public class Subdivision {
-    private static long id;
+    private static long genId;
+    private long id;
     private String name;
 
     public Subdivision(String name) {
-        id = id++;
+        this.id = genId++;
         this.name = name;
     }
 
