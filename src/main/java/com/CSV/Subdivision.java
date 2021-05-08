@@ -1,16 +1,16 @@
-package com.SyperOlao;
+package com.CSV;
 
-public class Subdivision {
-    private static long genId;
-    private long id;
+public class Subdivision{
+    private int id;
     private String name;
 
-    public Subdivision(String name) {
-        this.id = genId++;
+    public Subdivision(String name, int id) {
+        this.id = id;
         this.name = name;
     }
+    public Subdivision(){}
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
